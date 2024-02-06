@@ -5,10 +5,10 @@ networks:
 
 services:
   proxy_merge:
-    image: proxy_merge
+    image: reg.hdec.com/pdc/proxy_merge:2024-02-06
     env_file:
       - ./.env
-    restart: always  # 配置容器自动重启
+    restart: unless-stopped  # 配置容器自动重启
     ports:
       - "34567:8000"
     networks:

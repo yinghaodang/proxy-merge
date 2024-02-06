@@ -243,6 +243,14 @@
       password: 67dded4b-3830-31c7-afa3-8a152e9d1093
       udp: True
     -
+      name: 🇸🇬 新加坡A02
+      server: g05.sg02-ae5.entry.hsrtd.club
+      port: 20078
+      type: ss
+      cipher: aes-256-gcm
+      password: 67dded4b-3830-31c7-afa3-8a152e9d1093
+      udp: True
+    -
       name: 🇨🇳 台湾A01 | IEPL | x2
       server: g05.tw01-ae5.entry.hsrtd.club
       port: 20008
@@ -646,16 +654,22 @@
         - US.美国.Y | 专线.VA
         - US.美国.Z | 专线.VA
   rules:
+    - DOMAIN-SUFFIX,r.stripe.com,OpenAI
     - DOMAIN-SUFFIX,arxiv.org,OpenAI
     - DOMAIN-SUFFIX,txyz.ai,OpenAI
     - DOMAIN-SUFFIX,bing.com,OpenAI
     - DOMAIN-SUFFIX,openai.com,OpenAI
     - DOMAIN-SUFFIX,bing.net,OpenAI
-    - DOMAIN-SUFFIX,anthropic.com,OpenAI
+    - DOMAIN-SUFFIX,anthropic.com,Claude
     - DOMAIN,claude.ai,Claude
     - DOMAIN-SUFFIX,anthropic.com,Claude
     - DOMAIN,ai.meta.com,Claude
     - DOMAIN,bard.google.com,Claude
+    - DOMAIN-SUFFIX,easydoc.net,🇨🇳 国内网站
+    - DOMAIN-SUFFIX,vuejs.org,🇨🇳 国内网站
+    - DOMAIN-SUFFIX,gradio.app,🇨🇳 国内网站
+    - DOMAIN-SUFFIX,cn.bing.com, 🔰 选择节点
+    - DOMAIN-SUFFIX,y.qq.com,🔰 选择节点
     - DOMAIN,dl.stream.qqmusic.qq.com,🔰 选择节点
     - DOMAIN-SUFFIX,oracle.com,🔰 选择节点
     - DOMAIN-SUFFIX,huggingface.co,🔰 选择节点
@@ -663,6 +677,7 @@
     - DOMAIN-SUFFIX,docker.com,🔰 选择节点
     - DOMAIN-SUFFIX,microsoft.com,🔰 选择节点
     - DOMAIN-SUFFIX,office.com,🔰 选择节点
+    - DOMAIN-SUFFIX,bilivideo.com,🌏 爱奇艺&哔哩哔哩
     - DOMAIN-SUFFIX,akamaized.net,🌏 爱奇艺&哔哩哔哩
     - DOMAIN-SUFFIX,hdslb.com,🌏 爱奇艺&哔哩哔哩
     - DOMAIN-SUFFIX,bilibili.com,🌏 爱奇艺&哔哩哔哩

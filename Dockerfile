@@ -1,8 +1,8 @@
-FROM python:3.9
+FROM python:3.10-alpine3.18
 
 WORKDIR /root/
 
-COPY proxy_merge.py main.py requirements.txt /root/
+COPY proxy_merge.py proxy_download.py proxy_save.py main.py requirements.txt /root/
 
 COPY utils /root/utils
 

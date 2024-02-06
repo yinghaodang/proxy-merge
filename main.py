@@ -5,13 +5,17 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 
-from proxy_merge import download_and_load_yaml, merge_proxy, cutevpn_yaml_dump
+from proxy_merge import merge_proxy
+from proxy_download import download_and_load_yaml
+from proxy_save import cutevpn_yaml_dump
+
 
 # 加载.env文件中的环境变量
 load_dotenv()
 
 # 创建 FastAPI 应用实例
 app = FastAPI()
+
 
 def parse_url(url: str) -> Union[str, None]:
     """
@@ -27,6 +31,7 @@ def parse_url(url: str) -> Union[str, None]:
     if url.startswith('http://') or url.startswith('https://'):
         return url
 
+
 @app.get("/")
 def get_proxy_config():
     cutevpn = os.getenv('CUTEVPN')
@@ -35,8 +40,10 @@ def get_proxy_config():
     cutevpn  = parse_url(cutevpn)
     ikuuu  = parse_url(ikuuu)
     
-    cutevpn_dict = download_and_load_yaml(cutevpn)
-    ikuuu_dict = download_and_load_yaml(ikuuu)
+    proxy = { "http": "http://10.215.59.186:7890", 
+              "https": "http://10.215.59.186:7890" }
+    cutevpn_dict = download_and_load_yaml(cutevpn, proxy=proxy)
+    ikuuu_dict = download_and_load_yaml(ikuuu, proxy=proxy)
     merged_proxy = merge_proxy(cutevpn_dict, ikuuu_dict)
 
     yaml_str = cutevpn_yaml_dump(merged_proxy, indent=2)
