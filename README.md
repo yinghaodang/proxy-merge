@@ -19,3 +19,6 @@ docker build -t proxy_merge .
 docker network create --driver=bridge --subnet=172.23.1.0/24 proxy_merge
 docker compose up -d
 ```
+
+# Kubernetes部署
+使用K8s进行部署，fleet进行持续集成

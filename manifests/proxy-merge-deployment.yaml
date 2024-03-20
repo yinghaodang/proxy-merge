@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy-merge
+  namespace: ying-hd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxy-merge
+  template:
+    metadata:
+      labels:
+        app: proxy-merge
+    spec:
+      containers:
+      - name: proxy-merge
+        image: reg.hdec.com/pdc/proxy_merge:2024-02-06
+        envFrom:
+        - configMapRef:
+            name: proxy-merge-config
+        ports:
+        - containerPort: 8000
+
